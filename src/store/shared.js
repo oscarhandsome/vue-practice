@@ -10,7 +10,7 @@ export default {
     setError (state, payload) {
       state.error = payload
     },
-    classError (state, payload) {
+    clearError (state) {
       state.error = null
     }
   },
@@ -21,8 +21,8 @@ export default {
     setError ({commit}, payload) {
       commit('setError', payload)
     },
-    classError ({commit}, payload) {
-      commit('clearError', payload)
+    clearError ({commit}) {
+      commit('clearError')
     }
   },
   getters: {
