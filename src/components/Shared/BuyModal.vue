@@ -39,14 +39,18 @@
                 flat
                 @click="onCancel"
                 :disabled="localLoading"
-              >Close</v-btn>
+              >
+                Close
+              </v-btn>
               <v-btn
                 class="success"
                 flat
                 @click="onSave"
                 :disabled="localLoading"
                 :loading="localLoading"
-              >Buy it!</v-btn>
+              >
+                Buy it!
+              </v-btn>
             </v-card-actions>
           </v-flex>
         </v-layout>

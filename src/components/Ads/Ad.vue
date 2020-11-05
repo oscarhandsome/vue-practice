@@ -31,24 +31,24 @@
 </template>
 
 <script>
-  import EditAdModal from './EditAdModal'
+import EditAdModal from './EditAdModal'
 
-  export default {
-    props: ['id'],
-    computed: {
-      ad () {
-        const id = this.id
-        return this.$store.getters.adById(id)
-      },
-      loading () {
-        return this.$store.getters.loading
-      },
-      isOwner () {
-        return this.ad.ownerId === this.$store.getters.user.id
-      }
+export default {
+  props: ['id'],
+  computed: {
+    ad () {
+      const id = this.id
+      return this.$store.getters.adById(id)
     },
-    components: {
-      addEditAdModal: EditAdModal
+    loading () {
+      return this.$store.getters.loading
+    },
+    isOwner () {
+      return this.ad.ownerId === this.$store.getters.user.id
     }
+  },
+  components: {
+    addEditAdModal: EditAdModal
   }
+}
 </script>

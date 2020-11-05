@@ -4,17 +4,17 @@
       <v-flex xs12 sm6 offset-sm3>
         <h1 class="text--secondary mb-3">My ads</h1>
 
-        <v-card class="elevation-10 mb-3"
+        <v-card
+          class="elevation-10 mb-3"
           v-for="ad in myAds"
-                :key="ad.id"
+          :key="ad.id"
         >
           <v-layout row>
             <v-flex xs4>
               <v-card-media
                 :src="ad.imageSrc"
-                height="175px"
-              >
-              </v-card-media>
+                height="160px"
+              ></v-card-media>
             </v-flex>
             <v-flex xs8>
               <v-card-text>
@@ -26,7 +26,7 @@
                 <v-btn
                   class="info"
                   :to="'/ad/' + ad.id"
-                  >Open</v-btn>
+                >Open</v-btn>
               </v-card-actions>
             </v-flex>
           </v-layout>
@@ -41,13 +41,13 @@
     <v-layout v-else>
       <v-flex xs12 class="text-xs-center">
         <v-progress-circular
+          indeterminate
           :size="100"
           :width="4"
           color="purple"
-          indeterminate
         ></v-progress-circular>
       </v-flex>
-   </v-layout>
+    </v-layout>
   </v-container>
 </template>
 
@@ -63,7 +63,3 @@
     }
   }
 </script>
-
-<style scoped>
-
-</style>

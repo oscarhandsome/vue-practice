@@ -2,10 +2,10 @@
   <v-container>
     <v-layout row>
       <v-flex xs12 sm6 offset-sm3>
-        <h1 class="text--secondary">Create new ad</h1>
-        <v-form ref="form" v-model="valid" validation class="mb-3">
+        <h1 class="text--secondary mb-3">Create new ad</h1>
+        <v-form v-model="valid" ref="form" validation class="mb-3">
           <v-text-field
-            name="tite"
+            name="title"
             label="Ad title"
             type="text"
             v-model="title"
@@ -13,17 +13,15 @@
             :rules="[v => !!v || 'Title is required']"
           ></v-text-field>
           <v-text-field
-            id="decription"
-            name="decription"
+            name="description"
             label="Ad description"
             type="text"
             v-model="description"
             multi-line
-            :rules="[v => !!v || 'Decription is required']"
+            :rules="[v => !!v || 'Description is required']"
           ></v-text-field>
         </v-form>
-
-        <v-layout row mb-3>
+        <v-layout row class="mb-3">
           <v-flex xs12>
             <v-btn class="warning" @click="triggerUpload">
               Upload
@@ -32,39 +30,37 @@
             <input
               ref="fileInput"
               type="file"
-              style="display: none"
+              style="display: none;"
               accept="image/*"
               @change="onFileChange"
             >
           </v-flex>
         </v-layout>
-
         <v-layout row>
           <v-flex xs12>
             <img :src="imageSrc" height="100" v-if="imageSrc">
           </v-flex>
         </v-layout>
-
-        <v-layout xs12 row>
-          <img src="">
-        </v-layout>
         <v-layout row>
-          <v-switch
-            color="primary"
-            v-model="promo"
-            label="Add to promo?"
-          ></v-switch>
+          <v-flex xs12>
+            <v-switch
+              label="Add to promo?"
+              v-model="promo"
+              color="primary"
+            ></v-switch>
+          </v-flex>
         </v-layout>
-
         <v-layout row>
           <v-flex xs12>
             <v-spacer></v-spacer>
             <v-btn
               :loading="loading"
+              :disabled="!valid || !image || loading"
               class="success"
               @click="createAd"
-              :disabled="!valid || !this.image || loading"
-            >Create ad</v-btn>
+            >
+              Create ad
+            </v-btn>
           </v-flex>
         </v-layout>
       </v-flex>
@@ -122,7 +118,3 @@
     }
   }
 </script>
-
-<style scoped>
-
-</style>

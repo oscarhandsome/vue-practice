@@ -83,44 +83,44 @@
 </template>
 
 <script>
-  export default {
-    data () {
-      return {
-        drawer: false
-      }
+export default {
+  data () {
+    return {
+      drawer: false
+    }
+  },
+  computed: {
+    error () {
+      return this.$store.getters.error
     },
-    computed: {
-      error () {
-        return this.$store.getters.error
-      },
-      isUserLoggedIn () {
-        return this.$store.getters.isUserLoggedIn
-      },
-      links () {
-        if (this.isUserLoggedIn) {
-          return [
-            {title: 'Orders', icon: 'bookmark_border', url: '/orders'},
-            {title: 'New ad', icon: 'note_add', url: '/new'},
-            {title: 'My ads', icon: 'list', url: '/list'}
-          ]
-        }
-
+    isUserLoggedIn () {
+      return this.$store.getters.isUserLoggedIn
+    },
+    links () {
+      if (this.isUserLoggedIn) {
         return [
-          {title: 'Login', icon: 'lock', url: '/login'},
-          {title: 'Registration', icon: 'face', url: '/registration'}
+          {title: 'Orders', icon: 'bookmark_border', url: '/orders'},
+          {title: 'New ad', icon: 'note_add', url: '/new'},
+          {title: 'My ads', icon: 'list', url: '/list'}
         ]
       }
+
+      return [
+        {title: 'Login', icon: 'lock', url: '/login'},
+        {title: 'Registration', icon: 'face', url: '/registration'}
+      ]
+    }
+  },
+  methods: {
+    closeError () {
+      this.$store.dispatch('clearError')
     },
-    methods: {
-      closeError () {
-        this.$store.dispatch('clearError')
-      },
-      onLogout () {
-        this.$store.dispatch('logoutUser')
-        this.$router.push('/')
-      }
+    onLogout () {
+      this.$store.dispatch('logoutUser')
+      this.$router.push('/')
     }
   }
+}
 </script>
 
 <style scoped>
