@@ -2,6 +2,8 @@
 
 > A Vue.js project
 
+[Link to the DEMO](https://bit.ly/3oIWWsu)
+
 ## Build Setup
 
 ``` bash
